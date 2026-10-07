@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aura Eventos & Catering | Bodas, banquetes y ambientación de eventos</title>
+  <meta name="description" content="Aura Eventos & Catering: organización integral de bodas, catering de alta cocina y alquiler de mobiliario e iluminación lounge. Cotiza tu evento por WhatsApp.">
+  <meta property="og:title" content="Aura Eventos & Catering">
+  <meta property="og:description" content="Organización de bodas, catering de alta cocina y ambientación lounge. Cotiza tu evento por WhatsApp.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&h=630&q=80">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101010'/%3E%3Cpath d='M18 48V30a14 14 0 0 1 28 0v18' fill='none' stroke='%23c8a96a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M25 48V31a7 7 0 0 1 14 0v17' fill='none' stroke='%23c8a96a' stroke-width='3' stroke-linecap='round' opacity='.6'/%3E%3Ccircle cx='32' cy='33' r='2.5' fill='%23c8a96a'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#101010">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: '#f5f4df', ink: '#0e1620', obsidian: '#101010',
+            'carbon-lift': '#1d1a18', 'ash-stroke': '#3d3a39', granite: '#8a8380',
+            stone: '#b8b3b0', umber: '#5f5a54', bone: '#eeeeee', chalk: '#fafafa',
+            outlined: '#083e6f', ember: '#ee6018', sage: '#a0ca92',
+            champagne: '#c8a96a', wa: '#25d366'
+          },
+          fontFamily: {
+            sans: ['Geist', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['Geist Mono', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+            accent: ['Instrument Serif', 'Georgia', 'serif']
+          },
+          borderRadius: { btn: '8px', card: '16px', panel: '20px', arch: '160px 160px 16px 16px' },
+          boxShadow: {
+            warm: '0 0 40px 0 rgba(171,171,156,0.4)',
+            wa: '0 8px 24px rgba(14,22,32,0.25)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body { font-family: 'Geist', 'Inter', ui-sans-serif, system-ui, sans-serif; font-weight: 400; letter-spacing: -0.01em; }
+    .eyebrow { font: 400 12px/1.1 'Geist Mono', ui-monospace, monospace; letter-spacing: -0.02em; text-transform: uppercase; }
+    .accent { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
+    .t-display { font-size: clamp(56px, 11vw, 160px); line-height: 1; letter-spacing: -0.04em; }
+    .t-h-lg { font-size: clamp(44px, 6vw, 80px); line-height: 1; letter-spacing: -0.04em; }
+    .t-h-md { font-size: clamp(32px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.025em; }
+    .t-sub { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; letter-spacing: -0.02em; }
+    .section { padding-block: 56px; }
+    @media (min-width: 640px) { .section { padding-block: 72px; } }
+    @media (min-width: 1024px) { .section { padding-block: 112px; } }
+    .wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 20px; }
+    @media (min-width: 1024px) { .wrap { padding-inline: 24px; } }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px;
+      border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer;
+      transition: background-color .18s cubic-bezier(.4,0,.2,1), color .18s cubic-bezier(.4,0,.2,1), border-color .18s cubic-bezier(.4,0,.2,1); }
+    .btn-primary-dark { background: #fafafa; color: #101010; }
+    .btn-primary-dark:hover { background: #b8b3b0; }
+    .btn-primary-light { background: #0e1620; color: #f5f4df; }
+    .btn-primary-light:hover { background: #1d1a18; }
+    .btn-outline-dark { border: 1px solid #3d3a39; color: #eeeeee; }
+    .btn-outline-dark:hover { border-color: #eeeeee; }
+    :focus-visible { outline: 2px solid #c8a96a; outline-offset: 3px; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .zoom img { transition: transform .4s cubic-bezier(.4,0,.2,1); }
+    @media (hover: hover) { .zoom:hover img { transform: scale(1.03); } }
+    .hero-img { animation: slowzoom 12s ease-out forwards; }
+    @keyframes slowzoom { from { transform: scale(1); } to { transform: scale(1.04); } }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .35; } }
+
+    .field { width: 100%; height: 52px; padding: 0 16px; border-radius: 8px; background: #f5f4df; color: #101010;
+      border: 1px solid rgba(14,22,32,.2); font: inherit; font-size: 16px; }
+    textarea.field { height: auto; padding: 14px 16px; min-height: 104px; resize: vertical; }
+    .field::placeholder { color: rgba(95,90,84,.7); }
+    .field:focus { border: 1.5px solid #0e1620; outline: 2px solid #c8a96a; outline-offset: 2px; }
+    .field[aria-invalid="true"] { border-color: #ee6018; }
+    .err { display: none; color: #b8450f; font-size: 14px; margin-top: 6px; }
+    .field[aria-invalid="true"] + .err { display: block; }
+
+    .faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s cubic-bezier(.4,0,.2,1); }
+    .faq-panel > div { overflow: hidden; }
+    .faq-item[data-open="true"] .faq-panel { grid-template-rows: 1fr; }
+    .faq-item[data-open="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .18s cubic-bezier(.4,0,.2,1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-bone antialiased">
+
+  <!-- NAV -->
+  <header id="nav" class="fixed inset-x-0 top-0 z-40 transition-colors duration-200">
+    <div class="wrap flex h-16 items-center justify-between">
+      <a href="#inicio" class="eyebrow text-parchment">Aura Eventos &amp; Catering</a>
+      <nav aria-label="Principal" class="hidden items-center gap-8 text-sm text-parchment md:flex">
+        <a href="#servicios" class="hover:underline underline-offset-4 decoration-champagne">Servicios</a>
+        <a href="#galeria" class="hover:underline underline-offset-4 decoration-champagne">Galería</a>
+        <a href="#faq" class="hover:underline underline-offset-4 decoration-champagne">Preguntas</a>
+        <a href="#cotizar" class="hover:underline underline-offset-4 decoration-champagne">Reservar</a>
+        <a href="#" data-wa class="btn btn-primary-dark !min-h-[44px] !text-sm">Cotizar evento</a>
+      </nav>
+      <button id="menuBtn" class="flex h-11 w-11 flex-col items-center justify-center gap-[7px] md:hidden" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="block h-px w-6 bg-parchment"></span><span class="block h-px w-6 bg-parchment"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menú móvil -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 hidden flex-col bg-obsidian" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="wrap flex h-16 items-center justify-between">
+      <span class="eyebrow text-parchment">Aura Eventos &amp; Catering</span>
+      <button id="menuClose" class="flex h-11 w-11 items-center justify-center text-parchment" aria-label="Cerrar menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="wrap flex flex-1 flex-col justify-center gap-6 text-[32px] leading-tight tracking-tight text-parchment" aria-label="Móvil">
+      <a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#faq">Preguntas</a><a href="#cotizar">Reservar</a>
+      <a href="#" data-wa class="btn btn-primary-dark mt-4 w-full">Cotizar por WhatsApp</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" aria-labelledby="hero-title" class="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-obsidian">
+      <img class="hero-img absolute inset-0 h-full w-full object-cover object-[62%_50%] md:object-center" fetchpriority="high"
+           src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80"
+           alt="Novios con ramo de flores a contraluz cálido al atardecer">
+      <div class="wrap relative z-10 pb-28 pt-32 text-parchment md:pb-12">
+        <p class="eyebrow mb-6 flex items-center gap-2"><span class="pulse inline-block h-1.5 w-1.5 rounded-full bg-sage"></span>Fechas disponibles 2026–2027</p>
+        <h1 id="hero-title" class="t-display max-w-5xl">Celebra sin <span class="accent">preocuparte</span> de nada.</h1>
+        <div class="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <p class="max-w-[320px] border-l-[3px] border-parchment pl-4 text-base leading-snug">Bodas, aniversarios y celebraciones a medida. Tú disfrutas; nosotros lo hacemos perfecto.</p>
+          <div class="flex flex-col gap-3 sm:flex-row">
+            <a href="#" data-wa class="btn btn-primary-dark">Cotiza tu evento</a>
+            <a href="#galeria" class="btn btn-outline-dark !border-parchment !text-parchment hover:!bg-parchment hover:!text-obsidian">Ver galería →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS (crema) -->
+    <section id="servicios" aria-labelledby="serv-title" class="section bg-parchment text-ink">
+      <div class="wrap">
+        <p class="eyebrow mb-6 text-umber"><span class="text-champagne">01 —</span> Servicios</p>
+        <h2 id="serv-title" class="t-h-lg max-w-4xl">Todo lo que tu evento necesita, <span class="accent">en un solo lugar</span>.</h2>
+        <p class="mt-6 max-w-[560px] text-lg leading-snug text-umber">Desde la primera reunión hasta el último brindis, cuidamos cada detalle para que tu día sea exactamente como lo imaginaste.</p>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal zoom overflow-hidden rounded-card border border-ink/10 bg-parchment">
+            <div class="aspect-[4/5] overflow-hidden"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Dos sillas decoradas con flores para una ceremonia de boda al aire libre"></div>
+            <div class="p-6">
+              <p class="eyebrow mb-3 text-champagne">01</p>
+              <h3 class="t-sub">Organización Integral de Bodas &amp; Aniversarios</h3>
+              <p class="mt-3 text-sm leading-[1.43] text-umber">Planeación, cronograma y coordinación el día del evento. Una sola persona al mando para que tú solo disfrutes.</p>
+              <a href="#" data-wa class="mt-5 inline-flex min-h-[44px] items-center text-ink underline-offset-4 hover:underline">Ver más →</a>
+            </div>
+          </article>
+
+          <article class="reveal zoom overflow-hidden rounded-card border border-ink/10 bg-parchment" style="transition-delay:60ms">
+            <div class="aspect-[4/5] overflow-hidden"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80" alt="Platos de alta cocina servidos en un banquete"></div>
+            <div class="p-6">
+              <p class="eyebrow mb-3 text-champagne">02</p>
+              <h3 class="t-sub">Catering &amp; Banquetes de Alta Cocina</h3>
+              <p class="mt-3 text-sm leading-[1.43] text-umber">Menús de autor, estaciones y coctelería. Ingredientes frescos y presentación impecable para cada invitado.</p>
+              <a href="#" data-wa class="mt-5 inline-flex min-h-[44px] items-center text-ink underline-offset-4 hover:underline">Ver más →</a>
+            </div>
+          </article>
+
+          <article class="reveal zoom overflow-hidden rounded-card border border-ink/10 bg-parchment md:col-span-2 lg:col-span-1" style="transition-delay:120ms">
+            <div class="aspect-[4/5] overflow-hidden"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Salón de eventos con mesas, sillas doradas y lámparas de araña"></div>
+            <div class="p-6">
+              <p class="eyebrow mb-3 text-champagne">03</p>
+              <h3 class="t-sub">Alquiler de Mobiliario, Iluminación Lounge &amp; Ambientación</h3>
+              <p class="mt-3 text-sm leading-[1.43] text-umber">Mesas, sillas, salas lounge, mantelería y luces que transforman cualquier espacio en un lugar inolvidable.</p>
+              <a href="#" data-wa class="mt-5 inline-flex min-h-[44px] items-center text-ink underline-offset-4 hover:underline">Ver más →</a>
+            </div>
+          </article>
+        </div>
+
+        <ul class="mt-12 flex flex-wrap gap-2" aria-label="Tipos de evento">
+          <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Bodas</li>
+          <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Aniversarios</li>
+          <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">XV años</li>
+          <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Cumpleaños</li>
+          <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Corporativos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GALERÍA (oscuro) -->
+    <section id="galeria" aria-labelledby="gal-title" class="section bg-obsidian text-bone">
+      <div class="wrap">
+        <p class="eyebrow mb-6 text-stone"><span class="text-champagne">02 —</span> Galería</p>
+        <h2 id="gal-title" class="t-h-lg max-w-3xl">Momentos que <span class="accent">se quedan</span>.</h2>
+      </div>
+      <div class="wrap mt-12">
+        <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
+          <figure class="zoom aspect-[3/4] overflow-hidden md:row-span-2 md:aspect-auto"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=700&q=80" alt="Manos de los novios junto a un ramo de flores"></figure>
+          <figure class="zoom aspect-square overflow-hidden"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Plato gourmet de alta cocina"></figure>
+          <figure class="zoom aspect-square overflow-hidden"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80" alt="Mesa de banquete elegantemente decorada"></figure>
+          <figure class="zoom aspect-[3/4] overflow-hidden"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=700&q=80" alt="Pasillo de ceremonia con arreglos florales"></figure>
+          <figure class="zoom aspect-[4/3] overflow-hidden md:col-span-2"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=80" alt="Decoración de evento con flores y velas"></figure>
+          <figure class="zoom aspect-[4/3] overflow-hidden md:col-span-2"><img loading="lazy" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=80" alt="Letrero Mr y Mrs en una boda al aire libre"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (crema) -->
+    <section id="faq" aria-labelledby="faq-title" class="section bg-parchment text-ink">
+      <div class="wrap grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <p class="eyebrow mb-6 text-umber"><span class="text-champagne">03 —</span> Preguntas frecuentes</p>
+          <h2 id="faq-title" class="t-h-lg">Lo que <span class="accent">más</span> nos preguntan.</h2>
+          <p class="mt-6 max-w-[420px] text-lg leading-snug text-umber">¿Tienes otra duda? Escríbenos y te respondemos de inmediato.</p>
+          <a href="#" data-wa class="btn btn-primary-light mt-8 w-full sm:w-auto">Escribir por WhatsApp</a>
+        </div>
+        <div class="lg:col-span-7" id="faqList">
+          <div class="faq-item border-t border-ink/15" data-open="false">
+            <h3><button class="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left t-sub" aria-expanded="false" aria-controls="faq1" id="faq1-btn">¿Con cuánta anticipación debo reservar?<svg class="faq-icon shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a96a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+            <div class="faq-panel" id="faq1" role="region" aria-labelledby="faq1-btn"><div><p class="pb-6 text-umber">Recomendamos reservar entre 6 y 12 meses antes para bodas, y 2 a 3 meses para eventos más pequeños. Si tu fecha está cerca, escríbenos: revisamos disponibilidad al instante.</p></div></div>
+          </div>
+          <div class="faq-item border-t border-ink/15" data-open="false">
+            <h3><button class="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left t-sub" aria-expanded="false" aria-controls="faq2" id="faq2-btn">¿Ofrecen menús personalizados y degustación?<svg class="faq-icon shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a96a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+            <div class="faq-panel" id="faq2" role="region" aria-labelledby="faq2-btn"><div><p class="pb-6 text-umber">Sí. Diseñamos el menú contigo según tu estilo, presupuesto y restricciones alimentarias (vegetariano, sin gluten, alergias). Consulta con nosotros las condiciones de la degustación previa.</p></div></div>
+          </div>
+          <div class="faq-item border-t border-ink/15" data-open="false">
+            <h3><button class="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left t-sub" aria-expanded="false" aria-controls="faq3" id="faq3-btn">¿Puedo contratar solo el alquiler de mobiliario o la ambientación?<svg class="faq-icon shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a96a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+            <div class="faq-panel" id="faq3" role="region" aria-labelledby="faq3-btn"><div><p class="pb-6 text-umber">Claro. Cada servicio se puede contratar por separado o en conjunto. Incluimos transporte, montaje y desmontaje del mobiliario y la iluminación lounge.</p></div></div>
+          </div>
+          <div class="faq-item border-t border-ink/15" data-open="false">
+            <h3><button class="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left t-sub" aria-expanded="false" aria-controls="faq4" id="faq4-btn">¿Cómo funciona la cotización?<svg class="faq-icon shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a96a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+            <div class="faq-panel" id="faq4" role="region" aria-labelledby="faq4-btn"><div><p class="pb-6 text-umber">Completa el formulario de reserva o escríbenos por WhatsApp con la fecha, el tipo de evento y el número de invitados. Te enviamos una propuesta a tu medida, sin costo.</p></div></div>
+          </div>
+          <div class="faq-item border-y border-ink/15" data-open="false">
+            <h3><button class="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left t-sub" aria-expanded="false" aria-controls="faq5" id="faq5-btn">¿Cómo se asegura la fecha de mi evento?<svg class="faq-icon shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a96a" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+            <div class="faq-panel" id="faq5" role="region" aria-labelledby="faq5-btn"><div><p class="pb-6 text-umber">La fecha queda reservada con la firma del contrato y un anticipo. Te explicamos las condiciones y los plazos de pago antes de que decidas.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COTIZACIÓN / RESERVA (oscuro) -->
+    <section id="cotizar" aria-labelledby="cot-title" class="section bg-obsidian text-bone">
+      <div class="wrap grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <p class="eyebrow mb-6 flex items-center gap-2 text-stone"><span class="inline-block h-1.5 w-1.5 rounded-full bg-sage"></span>Respondemos en menos de 24 h</p>
+          <h2 id="cot-title" class="t-h-lg">Cuéntanos tu <span class="accent">sueño</span>. Nosotros lo hacemos realidad.</h2>
+          <ul class="mt-8 space-y-3 text-stone">
+            <li class="flex items-center gap-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0ca92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Cotización sin costo</li>
+            <li class="flex items-center gap-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0ca92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Propuesta a tu medida</li>
+            <li class="flex items-center gap-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0ca92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Atención directa por WhatsApp</li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="rounded-panel bg-bone p-6 text-obsidian sm:p-10">
+            <form id="quoteForm" novalidate>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                  <label for="nombre" class="eyebrow mb-2 block text-umber">Nombre completo *</label>
+                  <input id="nombre" name="nombre" class="field" type="text" autocomplete="name" required placeholder="Tu nombre">
+                  <p class="err">Escribe tu nombre.</p>
+                </div>
+                <div>
+                  <label for="tel" class="eyebrow mb-2 block text-umber">WhatsApp *</label>
+                  <input id="tel" name="tel" class="field" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+57 300 000 0000">
+                  <p class="err">Ingresa un número válido (mín. 7 dígitos).</p>
+                </div>
+                <div>
+                  <label for="tipo" class="eyebrow mb-2 block text-umber">Tipo de evento *</label>
+                  <select id="tipo" name="tipo" class="field" required>
+                    <option value="">Selecciona…</option>
+                    <option>Boda</option><option>Aniversario</option><option>XV años</option>
+                    <option>Cumpleaños</option><option>Evento corporativo</option><option>Otro</option>
+                  </select>
+                  <p class="err">Selecciona un tipo de evento.</p>
+                </div>
+                <div>
+                  <label for="fecha" class="eyebrow mb-2 block text-umber">Fecha tentativa *</label>
+                  <input id="fecha" name="fecha" class="field" type="date" required>
+                  <p class="err">Elige una fecha futura.</p>
+                </div>
+                <div>
+                  <label for="invitados" class="eyebrow mb-2 block text-umber">N.º de invitados *</label>
+                  <input id="invitados" name="invitados" class="field" type="number" inputmode="numeric" min="1" max="2000" required placeholder="Ej. 120">
+                  <p class="err">Indica cuántos invitados (1–2000).</p>
+                </div>
+                <fieldset class="sm:col-span-2">
+                  <legend class="eyebrow mb-2 text-umber">Servicios de interés</legend>
+                  <div class="flex flex-wrap gap-2">
+                    <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Organización integral" class="peer sr-only"><span class="inline-flex min-h-[44px] items-center rounded-full border border-ink/20 px-4 text-sm transition-colors peer-checked:border-ink peer-checked:bg-ink peer-checked:text-parchment peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-champagne">Organización</span></label>
+                    <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Catering" class="peer sr-only"><span class="inline-flex min-h-[44px] items-center rounded-full border border-ink/20 px-4 text-sm transition-colors peer-checked:border-ink peer-checked:bg-ink peer-checked:text-parchment peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-champagne">Catering</span></label>
+                    <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Mobiliario e iluminación lounge" class="peer sr-only"><span class="inline-flex min-h-[44px] items-center rounded-full border border-ink/20 px-4 text-sm transition-colors peer-checked:border-ink peer-checked:bg-ink peer-checked:text-parchment peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-champagne">Mobiliario &amp; lounge</span></label>
+                  </div>
+                </fieldset>
+                <div class="sm:col-span-2">
+                  <label for="mensaje" class="eyebrow mb-2 block text-umber">Mensaje</label>
+                  <textarea id="mensaje" name="mensaje" class="field" placeholder="Cuéntanos tu idea, lugar, estilo…"></textarea>
+                </div>
+                <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" class="absolute -left-[9999px] h-0 w-0 opacity-0">
+              </div>
+              <button type="submit" class="btn mt-8 w-full bg-obsidian text-bone hover:bg-carbon-lift">Solicitar cotización por WhatsApp</button>
+              <p class="mt-4 text-sm text-umber">Al enviar, se abrirá WhatsApp con tus datos para que nos escribas directamente.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COBERTURA Y ATENCIÓN (crema) -->
+    <section id="cobertura" aria-labelledby="cob-title" class="section bg-parchment text-ink">
+      <div class="wrap">
+        <p class="eyebrow mb-6 text-umber"><span class="text-champagne">04 —</span> Cobertura</p>
+        <h2 id="cob-title" class="t-h-lg max-w-4xl">Zonas de <span class="accent">cobertura</span> y atención.</h2>
+        <p class="mt-6 max-w-[560px] text-lg leading-snug text-umber">Vamos a donde esté tu celebración. Prestamos servicio en Bogotá y municipios aledaños.</p>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-12">
+          <!-- Mapa -->
+          <div class="reveal overflow-hidden rounded-card border border-ink/10 lg:col-span-7">
+            <div class="relative h-[320px] sm:h-[400px] lg:h-full lg:min-h-[440px]">
+              <iframe title="Mapa de cobertura: Bogotá y municipios aledaños" class="absolute inset-0 h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Bogot%C3%A1,+Colombia&z=9&output=embed"></iframe>
+            </div>
+          </div>
+
+          <!-- Tarjeta -->
+          <div class="reveal flex flex-col gap-8 rounded-card bg-parchment p-6 shadow-warm sm:p-10 lg:col-span-5" style="transition-delay:60ms">
+            <div>
+              <p class="eyebrow mb-4 text-umber">Zona de servicio</p>
+              <p class="t-sub">Bogotá y municipios aledaños</p>
+              <ul class="mt-5 flex flex-wrap gap-2" aria-label="Municipios de cobertura">
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Bogotá</li>
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Chía</li>
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Cajicá</li>
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Zipaquirá</li>
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">La Calera</li>
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Mosquera</li>
+                <li class="rounded-full border border-outlined px-4 py-2 text-sm text-outlined">Soacha</li>
+              </ul>
+              <p class="mt-4 text-sm text-umber">¿Tu municipio no aparece? Escríbenos y revisamos tu zona.</p>
+            </div>
+
+            <div class="border-t border-ink/15 pt-8">
+              <p class="eyebrow mb-4 text-umber">Horario de atención</p>
+              <dl class="space-y-2 text-base">
+                <div class="flex justify-between gap-4"><dt>Lunes a sábado</dt><dd class="font-medium">8:00 am – 7:00 pm</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-umber">Domingos y festivos</dt><dd class="text-umber">Cerrado</dd></div>
+              </dl>
+              <p class="mt-3 text-sm text-umber">Teléfono y WhatsApp: +57 322 745 4759</p>
+            </div>
+
+            <div class="rounded-card border border-ink/15 p-5">
+              <p id="waStatus" class="eyebrow mb-3 flex items-center gap-2"><span id="waDot" class="pulse inline-block h-1.5 w-1.5 rounded-full bg-sage"></span><span id="waStatusText">Atención inmediata por WhatsApp</span></p>
+              <p id="waStatusSub" class="text-sm text-umber">Escríbenos y te respondemos de inmediato.</p>
+              <a href="#" data-wa class="btn btn-primary-light mt-4 w-full">Escribir por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-ash-stroke bg-obsidian py-16 text-bone lg:py-24">
+    <div class="wrap">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-6">
+          <p class="eyebrow text-bone">Aura Eventos &amp; Catering</p>
+          <p class="mt-4 max-w-[360px] text-sm text-granite">Bodas, banquetes y ambientación con el cuidado de lo hecho a mano.</p>
+        </div>
+        <nav class="md:col-span-3" aria-label="Footer">
+          <p class="eyebrow mb-4 text-bone">Secciones</p>
+          <ul class="space-y-1 text-sm text-granite">
+            <li><a class="inline-flex min-h-[44px] items-center hover:text-bone" href="#servicios">Servicios</a></li>
+            <li><a class="inline-flex min-h-[44px] items-center hover:text-bone" href="#galeria">Galería</a></li>
+            <li><a class="inline-flex min-h-[44px] items-center hover:text-bone" href="#faq">Preguntas</a></li>
+            <li><a class="inline-flex min-h-[44px] items-center hover:text-bone" href="#cobertura">Cobertura</a></li>
+          </ul>
+        </nav>
+        <div class="md:col-span-3">
+          <p class="eyebrow mb-4 text-bone">Contacto</p>
+          <a href="#" data-wa class="inline-flex min-h-[44px] items-center text-sm text-granite hover:text-bone">WhatsApp: +57 322 745 4759</a>
+        </div>
+      </div>
+      <div class="mt-14 border-t border-ash-stroke pt-6 text-sm text-granite">© <span id="year">2026</span> Aura Eventos &amp; Catering. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a id="waFloat" href="#" data-wa target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"
+     class="fixed z-50 grid h-14 w-14 place-items-center rounded-full bg-wa shadow-wa transition-opacity duration-300 md:h-[60px] md:w-[60px]"
+     style="right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zM20.52 3.45A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg>
+  </a>
+
+  <script>
+    (function () {
+      var WA_NUMBER = '573227454759';
+      var WA_BASE = 'https://wa.me/' + WA_NUMBER + '?text=';
+      var WA_DEFAULT = WA_BASE + 'Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20con%20Aura%20Eventos';
+
+      // Todos los CTA de WhatsApp
+      document.querySelectorAll('[data-wa]').forEach(function (a) {
+        a.href = WA_DEFAULT; a.target = '_blank'; a.rel = 'noopener';
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Nav al hacer scroll + WhatsApp flotante (aparece tras 3s o pasado el hero)
+      var nav = document.getElementById('nav'), wa = document.getElementById('waFloat');
+      var waShown = false;
+      function showWa() { if (waShown) return; waShown = true; wa.style.opacity = '1'; wa.style.pointerEvents = 'auto'; }
+      setTimeout(showWa, 3000);
+      function onScroll() {
+        var y = window.scrollY;
+        nav.style.backgroundColor = y > 80 ? 'rgba(29,26,24,0.92)' : 'transparent';
+        nav.style.backdropFilter = y > 80 ? 'blur(8px)' : 'none';
+        if (y > window.innerHeight * 0.6) showWa();
+      }
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+      // Menú móvil
+      var menu = document.getElementById('mobileMenu'), mb = document.getElementById('menuBtn'), mc = document.getElementById('menuClose');
+      function setMenu(open) {
+        menu.classList.toggle('hidden', !open); menu.classList.toggle('flex', open);
+        mb.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : '';
+        (open ? mc : mb).focus();
+      }
+      mb.addEventListener('click', function () { setMenu(true); });
+      mc.addEventListener('click', function () { setMenu(false); });
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.classList.contains('hidden')) setMenu(false); });
+
+      // Revelado al scroll
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('button');
+        btn.addEventListener('click', function () {
+          var open = item.getAttribute('data-open') === 'true';
+          document.querySelectorAll('.faq-item').forEach(function (o) {
+            o.setAttribute('data-open', 'false'); o.querySelector('button').setAttribute('aria-expanded', 'false');
+          });
+          if (!open) { item.setAttribute('data-open', 'true'); btn.setAttribute('aria-expanded', 'true'); }
+        });
+      });
+
+      // Estado de atención (hora de Bogotá, UTC-5): lunes a sábado 8:00–19:00
+      (function () {
+        var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Bogota', weekday: 'short', hour: 'numeric', hour12: false }).formatToParts(new Date());
+        var day = parts.find(function (p) { return p.type === 'weekday'; }).value;
+        var hour = parseInt(parts.find(function (p) { return p.type === 'hour'; }).value, 10) % 24;
+        var open = day !== 'Sun' && hour >= 8 && hour < 19;
+        if (!open) {
+          document.getElementById('waDot').className = 'inline-block h-1.5 w-1.5 rounded-full bg-ember';
+          document.getElementById('waStatusText').textContent = 'Fuera de horario';
+          document.getElementById('waStatusSub').textContent = 'Déjanos tu mensaje y te respondemos al iniciar nuestra jornada.';
+        }
+      })();
+
+      // Formulario de cotización -> WhatsApp
+      var form = document.getElementById('quoteForm');
+      var fecha = document.getElementById('fecha');
+      var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+      fecha.min = today.toISOString().slice(0, 10);
+
+      function check(el, ok) { el.setAttribute('aria-invalid', ok ? 'false' : 'true'); return ok; }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (form.web.value) return; // honeypot
+        var f = form.elements;
+        var inv = parseInt(f.invitados.value, 10);
+        var results = [
+          check(f.nombre, f.nombre.value.trim().length > 1),
+          check(f.tel, f.tel.value.replace(/\D/g, '').length >= 7),
+          check(f.tipo, !!f.tipo.value),
+          check(f.fecha, !!f.fecha.value && f.fecha.value >= fecha.min),
+          check(f.invitados, inv >= 1 && inv <= 2000)
+        ];
+        if (results.indexOf(false) !== -1) {
+          form.querySelector('[aria-invalid="true"]').focus(); return;
+        }
+        var servicios = Array.prototype.map.call(form.querySelectorAll('input[name="servicio"]:checked'), function (c) { return c.value; });
+        var d = f.fecha.value.split('-').reverse().join('/');
+        var msg = 'Hola, me gustaría cotizar un evento con Aura Eventos.\n' +
+          'Nombre: ' + f.nombre.value.trim() + '\n' +
+          'WhatsApp: ' + f.tel.value.trim() + '\n' +
+          'Evento: ' + f.tipo.value + '\n' +
+          'Fecha tentativa: ' + d + '\n' +
+          'Invitados: ' + inv + '\n' +
+          (servicios.length ? 'Servicios: ' + servicios.join(', ') + '\n' : '') +
+          (f.mensaje.value.trim() ? 'Mensaje: ' + f.mensaje.value.trim() : '');
+        window.open(WA_BASE + encodeURIComponent(msg), '_blank', 'noopener');
+      });
+      form.querySelectorAll('.field').forEach(function (el) {
+        el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') el.setAttribute('aria-invalid', 'false'); });
+      });
+    })();
+  </script>
+</body>
+</html>
